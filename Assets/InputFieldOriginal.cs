@@ -202,7 +202,6 @@ public class InputFieldOriginal
 
     protected InputFieldOriginal()
     { }
-
     protected Mesh mesh
     {
         get
