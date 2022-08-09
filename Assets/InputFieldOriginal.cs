@@ -353,7 +353,7 @@ public class InputFieldOriginal
 
     protected int caretPositionInternal { get { return m_CaretPosition + Input.compositionString.Length; } set { m_CaretPosition = value; ClampPos(ref m_CaretPosition); } }
     protected int caretSelectPositionInternal { get { return m_CaretSelectPosition + Input.compositionString.Length; } set { m_CaretSelectPosition = value; ClampPos(ref m_CaretSelectPosition); } }
-    private bool hasSelection { get { return caretPositionInternal != caretSelectPositionInternal; } }
+    public bool hasSelection { get { return caretPositionInternal != caretSelectPositionInternal; } }
 
 #if UNITY_EDITOR
     [Obsolete("caretSelectPosition has been deprecated. Use selectionFocusPosition instead (UnityUpgradable) -> selectionFocusPosition", true)]
