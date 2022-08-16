@@ -8,7 +8,6 @@ public class MyInputField : InputFieldOriginal
 
     public override void OnPointerClick(PointerEventData eventData)
     {
-        base.OnPointerClick(eventData);
         if (!hasSelection)
         {
             SelectAll();
@@ -20,15 +19,8 @@ public class MyInputField : InputFieldOriginal
 
     public void UpdateCaretPosition()
     {
-        MoveTextEnd(true);
+        caretPosition = selectionFocusPosition = text.Length;
     }
-
-    public override void OnSelect(BaseEventData eventData)
-    {
-        base.OnSelect(eventData);
-    }
-
-
 
 
 
