@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -543,6 +542,7 @@ public class InputFieldOriginal
         }
         UpdateLabel();
     }
+
 
     public void MoveTextStart(bool shift)
     {
@@ -1140,7 +1140,7 @@ public class InputFieldOriginal
         return spaceLoc;
     }
 
-    private void MoveLeft(bool shift, bool ctrl)
+    public virtual void MoveLeft(bool shift, bool ctrl)
     {
         if (hasSelection && !shift)
         {
@@ -1155,6 +1155,7 @@ public class InputFieldOriginal
             position = FindtPrevWordBegin();
         else
             position = caretSelectPositionInternal - 1;
+        Debug.Log(position);
 
         if (shift)
             caretSelectPositionInternal = position;

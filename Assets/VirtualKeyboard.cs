@@ -14,9 +14,10 @@ public class VirtualKeyboard : MonoBehaviour
 
     private void Update()
     {
+
         if (m_isKeyPressed)
         {
-            KeyPress("");
+           KeyPress();
         }
 
         if (m_isPressing)
@@ -25,7 +26,8 @@ public class VirtualKeyboard : MonoBehaviour
         }
         if (m_isPressedLeft)
         {
-            KeyLeft();
+            KeyLeft(1);
+
         }
         if (m_isPressedRight)
         {
@@ -35,27 +37,27 @@ public class VirtualKeyboard : MonoBehaviour
 
     }
 
+    public void KeyPress()
+    {
+        InputField.UpdateCaretPosition();
+    }
 
 
     public void KeyPress(string c)
     {
         InputField.text += c;
         InputField.ActivateInputField();
-        InputField.UpdateCaretPosition();
     }
 
 
-    public void KeyLeft()
+    public void KeyLeft(int minus)
     {
-        string last = this.InputField.text;
-        for (int i = 0 ; i < last.Length; i++)
-        {
-            if (i != last.Length)
-            {
-                InputField.caretPosition = InputField.selectionFocusPosition = i;
-                InputField.ActivateInputField();
-            }
-        }
+        
+        int position = InputField.caretPosition;
+        int max = InputField.text.Length;
+        int min = 0;
+        InputField.selectionFocusPosition = Mathf.Clamp(position += (m_isPressedLeft ? -minus : max), min, max);
+        InputField.ActivateInputField();
     }
 
 
@@ -63,15 +65,7 @@ public class VirtualKeyboard : MonoBehaviour
 
     public void KeyRight()
     {
-        string last = this.InputField.text;
-        for (int i = 0; i < last.Length; i++)
-        {
-            if (i != last.Length)
-            {
-                InputField.caretPosition = InputField.selectionFocusPosition = i + 1;
-                InputField.ActivateInputField();
-            }
-        }
+        
     }
 
 
