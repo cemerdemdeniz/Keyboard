@@ -1,45 +1,41 @@
 ﻿using UnityEngine;
-
+using UnityEngine.UI;
 public class VirtualKeyboard : MonoBehaviour
 {
     public MyInputField InputField;
     public VirtualKeyboard virtualKeyboard;
+   
+    public Button buttonLeft;
+    public Button buttonRight;
+    public Button backSpace;
+    public Button keys;
 
+    protected int localPos = 0;
 
-    bool m_isPressing;
-    bool m_isPressedLeft;
-    bool m_isPressedRight;
-    bool m_isKeyPressed;
+   
 
+    private void Awake()
+    {
+        Button btn = buttonLeft.GetComponent<Button>();
+        Button btnR = buttonRight.GetComponent<Button>();  
+        Button backspace = backSpace.GetComponent<Button>();
+        Button key = keys.GetComponent<Button>();
+        btn.onClick.AddListener(KeyLeft);
+        btnR.onClick.AddListener(KeyRight);
+        backspace.onClick.AddListener(KeyDelete);
+        key.onClick.AddListener(KeyPress);
+        
+    }
 
     private void Update()
     {
 
-        if (m_isKeyPressed)
-        {
-           KeyPress();
-        }
-
-        if (m_isPressing)
-        {
-            KeyDelete();
-        }
-        if (m_isPressedLeft)
-        {
-            KeyLeft(1);
-
-        }
-        if (m_isPressedRight)
-        {
-            KeyRight();
-        }
-
+        InputField.ActivateInputField();
 
     }
 
     public void KeyPress()
     {
-        InputField.UpdateCaretPosition();
     }
 
 
@@ -47,17 +43,16 @@ public class VirtualKeyboard : MonoBehaviour
     {
         InputField.text += c;
         InputField.ActivateInputField();
+        InputField.UpdateCaretPosition();
+
     }
 
 
-    public void KeyLeft(int minus)
+    public void KeyLeft()
     {
-        
-        int position = InputField.caretPosition;
-        int max = InputField.text.Length;
-        int min = 0;
-        InputField.selectionFocusPosition = Mathf.Clamp(position += (m_isPressedLeft ? -minus : max), min, max);
-        InputField.ActivateInputField();
+        localPos++;
+        InputField.caretPosition = InputField.selectionFocusPosition = InputField.text.Length - localPos;
+
     }
 
 
@@ -65,7 +60,8 @@ public class VirtualKeyboard : MonoBehaviour
 
     public void KeyRight()
     {
-        
+        localPos--;
+        InputField.caretPosition = InputField.selectionFocusPosition = InputField.text.Length - localPos;
     }
 
 
@@ -91,42 +87,9 @@ public class VirtualKeyboard : MonoBehaviour
 
 
     #region EventTriggerBoolean
-    public void IsBackSpaceOn()
-    {
-        m_isPressing = true;
-    }
-
-    public void IsBackSpaceOff()
-    {
-        m_isPressing = false;
-    }
-
-    public void IsKeyLeftOn()
-    {
-        m_isPressedLeft = true;
-    }
-    public void IsKeyLeftOff()
-    {
-        m_isPressedLeft = false;
-    }
-    public void IsKeyRightOn()
-    {
-        m_isPressedRight = true;
-    }
-
-    public void IsKeyRightOff()
-    {
-        m_isPressedRight = false;
-    }
-
-    public void IsKeyPressed()
-    {
-        m_isKeyPressed = true;
-    }
-    public void IsKeyPressedOff()
-    {
-        m_isKeyPressed = false;
-    }
+   
+   
+   
     #endregion
 
 

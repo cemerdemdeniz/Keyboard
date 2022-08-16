@@ -551,7 +551,6 @@ GameObject:
   - component: {fileID: 296570971}
   - component: {fileID: 296570970}
   - component: {fileID: 296570969}
-  - component: {fileID: 296570972}
   m_Layer: 0
   m_Name: ButtonBackspace
   m_TagString: Untagged
@@ -661,51 +660,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296570967}
   m_CullTransparentMesh: 0
---- !u!114 &296570972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296570967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1562917989}
-          m_TargetAssemblyTypeName: VirtualKeyboard, Assembly-CSharp
-          m_MethodName: IsBackSpaceOn
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1562917989}
-          m_TargetAssemblyTypeName: VirtualKeyboard, Assembly-CSharp
-          m_MethodName: IsBackSpaceOff
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &408779099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,14 +1056,6 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls: []
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1562917989}
           m_TargetAssemblyTypeName: VirtualKeyboard, Assembly-CSharp
@@ -1123,6 +1069,26 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1562917989}
+          m_TargetAssemblyTypeName: VirtualKeyboard, Assembly-CSharp
+          m_MethodName: IsKeyLeftOff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1309959182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,7 +1530,6 @@ GameObject:
   - component: {fileID: 1550262416}
   - component: {fileID: 1550262415}
   - component: {fileID: 1550262414}
-  - component: {fileID: 1550262417}
   m_Layer: 0
   m_Name: ButtonRight
   m_TagString: Untagged
@@ -1635,19 +1600,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1550262415}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1562917989}
-        m_TargetAssemblyTypeName: VirtualKeyboard, Assembly-CSharp
-        m_MethodName: IsKeyRightOn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1550262415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,27 +1639,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550262412}
   m_CullTransparentMesh: 0
---- !u!114 &1550262417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550262412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!1 &1562917988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,6 +1670,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputField: {fileID: 1709371264}
   virtualKeyboard: {fileID: 1562917989}
+  buttonLeft: {fileID: 1292237328}
+  buttonRight: {fileID: 1550262414}
+  backSpace: {fileID: 296570969}
 --- !u!224 &1562917990
 RectTransform:
   m_ObjectHideFlags: 0

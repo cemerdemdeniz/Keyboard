@@ -20,10 +20,15 @@ public class MyInputField : InputFieldOriginal
 
     public void UpdateCaretPosition()
     {
-        m_CaretPosition = m_CaretSelectPosition = m_Text.Length;
+        MoveTextEnd(true);
     }
 
-  
+    public override void OnSelect(BaseEventData eventData)
+    {
+        base.OnSelect(eventData);
+    }
+
+
 
 
 
