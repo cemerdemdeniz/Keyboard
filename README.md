@@ -18,6 +18,8 @@ Developed with the [Unity 3D](https://unity.com/) game engine. I've developed th
 
 -Virtual keyboard must be consistent and should not interfere with manual input from a real keyboard
 
+-* The bonus is to implement multiple keystrokes on the button hold, as on a real keyboard.
+
 
 
 ## Installation
