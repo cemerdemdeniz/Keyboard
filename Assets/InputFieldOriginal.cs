@@ -1275,7 +1275,7 @@ public class InputFieldOriginal
             caretSelectPositionInternal = caretPositionInternal = position;
     }
 
-    public virtual void Delete()
+    private void Delete()
     {
         if (caretPositionInternal == caretSelectPositionInternal)
             return;

@@ -2,15 +2,19 @@
 using UnityEngine.UI;
 public class VirtualKeyboard : MonoBehaviour
 {
+    #region Scripts
     public MyInputField InputField;
     public VirtualKeyboard virtualKeyboard;
+    #endregion
 
+
+    #region Buttons
     public Button buttonLeft;
     public Button buttonRight;
     public Button backSpace;
+    #endregion
 
     protected int localPos = 0;
-
 
 
     private void Awake()
@@ -56,28 +60,23 @@ public class VirtualKeyboard : MonoBehaviour
 
     public void KeyDelete()
     {
-        if(backSpace.onClick != null)
+        
+        string last = this.InputField.text;
+        string newText = "";
+        if (InputField.text == null) return;
+
+
+
+        for (int i = 0; i <= last.Length - 1; i++)
         {
-            InputField.BackSpacePub();
+            if (i != last.Length - 1)
+            {
+                newText += last[i];
+            }
         }
 
-
-        //string last = this.InputField.text;
-        //string newText = "";
-        //if (InputField.text == null) return;
-
-
-        //for (int i = 0; i <= last.Length - 1; i++)
-        //{
-        //    if (i != last.Length - 1)
-        //    {
-        //        newText += last[i];
-        //    }
-        //}
-
-
-        //this.InputField.text = newText;
-        //InputField.ActivateInputField();
+        this.InputField.text = newText;
+        InputField.ActivateInputField();
 
     }
 

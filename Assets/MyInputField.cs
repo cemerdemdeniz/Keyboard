@@ -22,6 +22,4 @@ public class MyInputField : InputFieldOriginal
         caretPosition = selectionFocusPosition = text.Length;
     }
 
-
-
 }

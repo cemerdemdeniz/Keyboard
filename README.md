@@ -35,4 +35,7 @@ cd KeyboardTask\Assets\Scene
 ![Giff](Docs/giff/Backspacegiff.gif)
 ![Giff](Docs/giff/KeyLeftRightgiff.gif)
 ![Giff](Docs/giff/Replacegiff.gif)
+![Giff](Docs/giff/HoldButtongiff.gif)
+
+
 
